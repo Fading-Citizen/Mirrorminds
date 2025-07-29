@@ -36,8 +36,11 @@ jobs:
       - name: Build
         run: npm run build
         
-      - name: Add .nojekyll file
-        run: touch ./dist/.nojekyll
+      - name: Add .nojekyll file to disable Jekyll
+        run: |
+          touch ./dist/.nojekyll
+          echo "Added .nojekyll file to disable Jekyll processing"
+          ls -la ./dist/
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
