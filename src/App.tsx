@@ -5,22 +5,14 @@ import LoadingScreen from './components/LoadingScreen';
 import './App.css';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<'loading' | 'landing' | 'assessment'>('loading');
-  const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState<'loading' | 'landing' | 'assessment'>('landing'); // Start directly on landing
   const [error, setError] = useState<string | null>(null);
 
-  // Fixed loading time of 1 second for debugging
+  // Simplified - no loading timer for debugging
   useEffect(() => {
     try {
-      console.log('MirrorMinds App starting...');
-      const loadingTimer = setTimeout(() => {
-        console.log('Timer firing - transitioning to landing page');
-        setIsLoading(false);
-        setCurrentPage('landing');
-        console.log('Loading complete, showing landing page');
-      }, 1000); // Reduced to 1 second for debugging
-
-      return () => clearTimeout(loadingTimer);
+      console.log('MirrorMinds App starting directly on landing page...');
+      // No timer needed - go straight to landing
     } catch (err) {
       console.error('Error in App useEffect:', err);
       setError(err instanceof Error ? err.message : 'Unknown error');
@@ -80,9 +72,9 @@ function App() {
     );
   }
 
-  // Show loading screen
-  if (isLoading || currentPage === 'loading') {
-    console.log('Showing loading screen, isLoading:', isLoading, 'currentPage:', currentPage);
+  // Show loading screen only if currentPage is 'loading'
+  if (currentPage === 'loading') {
+    console.log('Showing loading screen, currentPage:', currentPage);
     return <LoadingScreen />;
   }
 
