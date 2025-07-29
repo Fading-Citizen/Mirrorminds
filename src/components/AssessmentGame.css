@@ -759,24 +759,45 @@
   .game-hud {
     padding: 0.6rem 1rem 0.6rem 130px;
     background: rgba(0,0,0,0.95);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
   }
   
   .hud-left {
-    gap: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: 1;
   }
   
   .level-indicator {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
+    white-space: nowrap;
   }
   
   .experience-bar {
-    width: 120px;
+    width: 100px;
     height: 16px;
   }
   
   .exp-text {
     font-size: 0.7rem;
+  }
+  
+  .hud-center {
+    order: 0;
+  }
+  
+  .question-progress {
+    font-size: 0.95rem;
+  }
+  
+  .hud-right {
+    display: flex;
+    align-items: center;
   }
   
   .question-progress {
@@ -950,50 +971,68 @@
   }
   
   .game-hud {
-    padding: 0.5rem 0.5rem 0.5rem 100px;
+    padding: 0.4rem 0.5rem 0.4rem 100px;
     background: rgba(0,0,0,0.95);
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 0.5rem;
     height: auto;
+    flex-wrap: wrap;
   }
   
   .hud-left {
-    gap: 0.5rem;
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1;
+    min-width: 0;
   }
   
   .level-indicator {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
   }
   
   .experience-bar {
-    width: 100px;
-    height: 14px;
+    width: 80px;
+    height: 12px;
+    flex-shrink: 0;
   }
   
   .exp-text {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
   
   .hud-center {
-    order: -1;
+    order: 0;
+    flex-shrink: 0;
   }
   
   .question-progress {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
   }
   
   .hud-right {
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
+  
+  .score-display {
+    gap: 0.1rem;
   }
   
   .score-value {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    line-height: 1;
   }
   
   .score-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
   
   .game-main {
@@ -1149,25 +1188,47 @@
   }
   
   .game-hud {
-    padding: 0.4rem 0.3rem 0.4rem 80px;
+    padding: 0.3rem 0.2rem 0.3rem 70px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  .hud-left {
+    gap: 0.3rem;
+    flex: 1;
+    min-width: 0;
   }
   
   .level-indicator {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
   }
   
   .experience-bar {
-    width: 80px;
-    height: 12px;
+    width: 60px;
+    height: 10px;
+  }
+  
+  .exp-text {
+    font-size: 0.55rem;
   }
   
   .question-progress {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .score-display {
+    gap: 0.05rem;
   }
   
   .score-value {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .score-label {
+    font-size: 0.55rem;
   }
   
   .game-main {
