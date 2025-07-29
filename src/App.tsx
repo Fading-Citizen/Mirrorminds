@@ -9,15 +9,16 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Fixed loading time of 3 seconds
+  // Fixed loading time of 1 second for debugging
   useEffect(() => {
     try {
       console.log('MirrorMinds App starting...');
       const loadingTimer = setTimeout(() => {
+        console.log('Timer firing - transitioning to landing page');
         setIsLoading(false);
         setCurrentPage('landing');
         console.log('Loading complete, showing landing page');
-      }, 3000);
+      }, 1000); // Reduced to 1 second for debugging
 
       return () => clearTimeout(loadingTimer);
     } catch (err) {
@@ -81,8 +82,11 @@ function App() {
 
   // Show loading screen
   if (isLoading || currentPage === 'loading') {
+    console.log('Showing loading screen, isLoading:', isLoading, 'currentPage:', currentPage);
     return <LoadingScreen />;
   }
+
+  console.log('Rendering main app, currentPage:', currentPage);
 
   return (
     <div className="App">
