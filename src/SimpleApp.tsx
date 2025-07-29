@@ -1,5 +1,3 @@
-import React from 'react';
-
 function SimpleApp() {
   console.log('SimpleApp rendering...');
   
