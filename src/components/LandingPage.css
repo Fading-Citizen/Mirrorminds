@@ -501,13 +501,105 @@
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Large Desktop */
+@media (min-width: 1440px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 4.5rem;
+  }
+  
+  .cogs-grid {
+    max-width: 1400px;
+    min-height: 700px;
+  }
+  
+  .cogs-grid > :nth-child(1) { left: 8%; }
+  .cogs-grid > :nth-child(3) { right: 8%; }
+  .cogs-grid > :nth-child(5) { left: -2%; }
+  .cogs-grid > :nth-child(6) { right: -2%; }
+  .cogs-grid > :nth-child(7) { left: 8%; }
+  .cogs-grid > :nth-child(4) { right: 8%; }
+}
+
+/* Tablet Landscape */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .cogs-grid {
+    max-width: 1000px;
+    min-height: 600px;
+  }
+}
+
+/* Small Desktop / Large Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .landing-header {
+    padding: 3rem 1.5rem;
+  }
+  
+  .landing-main {
+    padding: 3rem 1.5rem;
+  }
+  
+  .cogs-grid {
+    max-width: 800px;
+    min-height: 550px;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .cogs-grid > :nth-child(1) { left: 12%; }
+  .cogs-grid > :nth-child(3) { right: 12%; }
+  .cogs-grid > :nth-child(5) { left: 2%; }
+  .cogs-grid > :nth-child(6) { right: 2%; }
+  .cogs-grid > :nth-child(7) { left: 12%; }
+  .cogs-grid > :nth-child(4) { right: 12%; }
+  
+  .cogs-grid > :nth-child(5),
+  .cogs-grid > :nth-child(2),
+  .cogs-grid > :nth-child(6) {
+    top: 200px;
+  }
+  
+  .cogs-grid > :nth-child(7),
+  .cogs-grid > :nth-child(4) {
+    top: 400px;
+  }
+  
+  /* Adjust neon lines for tablet */
+  .cogs-grid::before {
+    background-size: 
+      250px 350px, 250px 350px,
+      230px 330px, 230px 330px,
+      250px 350px, 250px 350px;
+  }
+}
+
+/* Mobile Large */
+@media (min-width: 481px) and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
   }
   
   .hero-subtitle {
     font-size: 1.2rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .landing-header {
+    padding: 2.5rem 1.5rem;
   }
   
   .rotating-logo-container {
@@ -515,18 +607,217 @@
   }
   
   .landing-main {
-    padding: 2rem 1rem;
-  }
-  
-  .traits-grid,
-  .cogs-grid,
-  .process-steps {
-    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem;
+    border-radius: 15px 15px 0 0;
   }
   
   .intro-section h2,
   .cogs-section h2,
   .process-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .intro-text {
+    font-size: 1.1rem;
+  }
+  
+  /* MOBILE: Stack cards vertically and hide neon lines */
+  .cogs-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: auto;
+    padding: 1rem;
+  }
+  
+  .cogs-grid::before,
+  .cogs-grid::after {
+    display: none; /* Hide neon lines on mobile */
+  }
+  
+  .cogs-grid > :nth-child(n) {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: auto !important;
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .cogs-grid > :nth-child(2) .cog-card {
+    transform: scale(1.05);
+  }
+  
+  .traits-grid,
+  .process-steps {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .cta-section {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .cta-button {
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .landing-header {
+    padding: 2rem 1rem;
+  }
+  
+  .rotating-logo-container {
+    margin-bottom: 1rem;
+  }
+  
+  .landing-main {
+    padding: 2rem 1rem;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .intro-section h2,
+  .cogs-section h2,
+  .process-section h2 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+  
+  /* MOBILE: Stack cards vertically and hide neon lines */
+  .cogs-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    min-height: auto;
+    padding: 0.5rem;
+  }
+  
+  .cogs-grid::before,
+  .cogs-grid::after {
+    display: none; /* Hide neon lines on mobile */
+  }
+  
+  .cogs-grid > :nth-child(n) {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    z-index: auto !important;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .cogs-grid > :nth-child(2) .cog-card {
+    transform: scale(1.02);
+  }
+  
+  .traits-grid,
+  .process-steps {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  
+  .trait-card,
+  .step {
+    padding: 1.5rem;
+  }
+  
+  .trait-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .trait-card h3,
+  .step h3 {
+    font-size: 1.2rem;
+  }
+  
+  .cta-section {
+    padding: 2rem 1rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  .cta-content p {
+    font-size: 1.1rem;
+  }
+  
+  .cta-button {
+    padding: 0.9rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .landing-footer {
+    padding: 1.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 360px) {
+  .hero-title {
     font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .landing-header {
+    padding: 1.5rem 0.8rem;
+  }
+  
+  .landing-main {
+    padding: 1.5rem 0.8rem;
+  }
+  
+  .intro-section h2,
+  .cogs-section h2,
+  .process-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .cogs-grid > :nth-child(n) {
+    max-width: 280px;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.6rem;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 }

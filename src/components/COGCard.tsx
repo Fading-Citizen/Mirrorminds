@@ -138,11 +138,108 @@ const StyledWrapper = styled.div`
     transform: translateY(-5px);
   }
 
-  /* MOBILE RESPONSIVE - Simplified layout for mobile devices */
-  @media (max-width: 768px) {
+  /* RESPONSIVE DESIGN - Enhanced mobile and tablet support */
+  
+  /* Large Tablets and Small Desktops */
+  @media (min-width: 769px) and (max-width: 1024px) {
     .cog-card {
-      min-height: 160px;
+      max-width: 220px;
+      min-height: 170px;
+      padding: 14px;
+    }
+    
+    .cog-title {
+      font-size: 1.15rem;
+    }
+    
+    .cog-description {
+      font-size: 0.8rem;
+    }
+    
+    .cog-manifestation {
+      padding: 8px;
+    }
+    
+    .manifestation-text {
+      font-size: 0.75rem;
+    }
+  }
+  
+  /* Tablets Portrait */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .cog-card {
+      max-width: 320px;
+      min-height: 180px;
+      padding: 18px;
+    }
+    
+    .cog-title {
+      font-size: 1.25rem;
+      margin: 0 0 6px 0;
+    }
+    
+    .cog-description {
+      font-size: 0.9rem;
+      margin: 0 0 10px 0;
+    }
+    
+    .cog-manifestation {
+      padding: 12px;
+    }
+    
+    .manifestation-label {
+      font-size: 0.8rem;
+      margin-bottom: 5px;
+    }
+    
+    .manifestation-text {
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Mobile Large */
+  @media (max-width: 480px) {
+    .cog-card {
+      max-width: 300px;
+      min-height: 170px;
       padding: 16px;
+    }
+    
+    .cog-content {
+      gap: 8px;
+      padding-top: 10px;
+    }
+    
+    .cog-title {
+      font-size: 1.2rem;
+      margin: 0 0 5px 0;
+    }
+    
+    .cog-description {
+      font-size: 0.85rem;
+      margin: 0 0 8px 0;
+    }
+    
+    .cog-manifestation {
+      padding: 10px;
+    }
+    
+    .manifestation-label {
+      font-size: 0.75rem;
+      margin-bottom: 4px;
+    }
+    
+    .manifestation-text {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Mobile Small */
+  @media (max-width: 360px) {
+    .cog-card {
+      max-width: 280px;
+      min-height: 160px;
+      padding: 14px;
     }
     
     .cog-title {
@@ -151,6 +248,10 @@ const StyledWrapper = styled.div`
     
     .cog-description {
       font-size: 0.8rem;
+    }
+    
+    .cog-manifestation {
+      padding: 8px;
     }
     
     .manifestation-text {
