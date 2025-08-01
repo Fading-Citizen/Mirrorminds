@@ -5,9 +5,10 @@ import './LandingPage.css';
 
 interface LandingPageProps {
   onStartAssessment: () => void;
+  onLogin?: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onLogin }) => {
   const cogs = [
     {
       id: 1,
@@ -56,6 +57,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment }) => {
   return (
     <div className="landing-container">
       <header className="landing-header">
+        {onLogin && (
+          <button className="login-button" onClick={onLogin}>
+            Login
+          </button>
+        )}
         <div className="hero-section">
           <div className="rotating-logo-container">
             <RotatingLogo />

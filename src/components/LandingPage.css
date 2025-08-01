@@ -14,6 +14,29 @@
   position: relative;
 }
 
+.login-button {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.login-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #00d4ff;
+  box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+  transform: translateY(-1px);
+}
+
 .hero-section {
   max-width: 800px;
   margin: 0 auto;
@@ -664,6 +687,13 @@
     padding: 2.5rem 1.5rem;
   }
   
+  .login-button {
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
   .rotating-logo-container {
     margin-bottom: 1.5rem;
   }
@@ -750,6 +780,13 @@
   
   .landing-header {
     padding: 2rem 1rem;
+  }
+  
+  .login-button {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
   }
   
   .rotating-logo-container {

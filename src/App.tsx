@@ -4,11 +4,13 @@ import AssessmentGame from './components/AssessmentGame';
 import QuestSelection from './components/QuestSelection';
 import AIChatAssessment from './components/AIChatAssessment';
 import LoadingScreen from './components/LoadingScreen';
+import AuthContainer from './components/AuthContainer';
 import './App.css';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<'loading' | 'landing' | 'quest-selection' | 'traditional-assessment' | 'ai-chat-assessment'>('landing'); // Start directly on landing
+  const [currentPage, setCurrentPage] = useState<'loading' | 'landing' | 'auth' | 'quest-selection' | 'traditional-assessment' | 'ai-chat-assessment'>('landing'); // Start directly on landing
   const [error, setError] = useState<string | null>(null);
+  const [user, setUser] = useState<any>(null);
 
   // Simplified - no loading timer for debugging
   useEffect(() => {
@@ -48,12 +50,32 @@ function App() {
     }
   };
 
+  const navigateToAuth = () => {
+    try {
+      setCurrentPage('auth');
+    } catch (err) {
+      console.error('Error navigating to auth:', err);
+      setError(err instanceof Error ? err.message : 'Navigation error');
+    }
+  };
+
   const navigateToLanding = () => {
     try {
       setCurrentPage('landing');
     } catch (err) {
       console.error('Error navigating to landing:', err);
       setError(err instanceof Error ? err.message : 'Navigation error');
+    }
+  };
+
+  const handleAuthSuccess = (userData: any) => {
+    try {
+      setUser(userData);
+      setCurrentPage('quest-selection');
+      console.log('User authenticated:', userData);
+    } catch (err) {
+      console.error('Error handling auth success:', err);
+      setError(err instanceof Error ? err.message : 'Authentication error');
     }
   };
 
@@ -103,7 +125,16 @@ function App() {
   return (
     <div className="App">
       {currentPage === 'landing' && (
-        <LandingPage onStartAssessment={navigateToQuestSelection} />
+        <LandingPage 
+          onStartAssessment={navigateToQuestSelection}
+          onLogin={navigateToAuth}
+        />
+      )}
+      {currentPage === 'auth' && (
+        <AuthContainer 
+          onBackToLanding={navigateToLanding}
+          onAuthSuccess={handleAuthSuccess}
+        />
       )}
       {currentPage === 'quest-selection' && (
         <QuestSelection 
