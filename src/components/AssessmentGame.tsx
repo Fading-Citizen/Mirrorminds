@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ResultsScreen from './ResultsScreen';
 import './AssessmentGame.css';
 
 interface Question {
@@ -18,7 +19,7 @@ const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToLanding }) => {
   const [experience, setExperience] = useState(0);
   const [level, setLevel] = useState(1);
   const [answers, setAnswers] = useState<number[]>([]);
-  const [gameStarted, setGameStarted] = useState(false);
+  const [gameStarted, setGameStarted] = useState(true);
   const [showResults, setShowResults] = useState(false);
 
   const questions: Question[] = [
@@ -107,7 +108,7 @@ const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToLanding }) => {
     setExperience(0);
     setLevel(1);
     setAnswers([]);
-    setGameStarted(false);
+    setGameStarted(true);
     setShowResults(false);
   };
 
@@ -153,57 +154,14 @@ const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToLanding }) => {
 
   if (showResults) {
     return (
-      <div className="assessment-container">
-        {/* Fixed Back Button */}
-        <button className="fixed-back-btn" onClick={onBackToLanding} title="Back to Landing Page">
-          ← Home
-        </button>
-        
-        <div className="results-screen">
-          <h1 className="results-title">🏆 Quest Complete!</h1>
-          <div className="final-stats">
-            <div className="stat-item">
-              <span className="stat-label">Final Score</span>
-              <span className="stat-value">{score}</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-label">Level Reached</span>
-              <span className="stat-value">{level}</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-label">Questions Completed</span>
-              <span className="stat-value">{questions.length}</span>
-            </div>
-          </div>
-          
-          <div className="cog-results">
-            <h2>Your COG Profile</h2>
-            <div className="cog-bars">
-              {['Empathy', 'Purpose', 'Communication', 'Creativity', 'Security', 'Confidence', 'Insights'].map((cog) => (
-                <div key={cog} className="cog-bar">
-                  <span className="cog-name">{cog}</span>
-                  <div className="progress-bar">
-                    <div 
-                      className="progress-fill" 
-                      style={{ width: `${Math.random() * 80 + 20}%` }}
-                    ></div>
-                  </div>
-                  <span className="cog-percentage">{Math.floor(Math.random() * 80 + 20)}%</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="results-actions">
-            <button className="restart-btn" onClick={resetGame}>
-              🔄 Take Quest Again
-            </button>
-            <button className="back-btn" onClick={onBackToLanding}>
-              ← Back to Home
-            </button>
-          </div>
-        </div>
-      </div>
+      <ResultsScreen
+        score={score}
+        level={level}
+        questionsCompleted={questions.length}
+        assessmentType="traditional"
+        onRestart={resetGame}
+        onBackToHome={onBackToLanding}
+      />
     );
   }
 

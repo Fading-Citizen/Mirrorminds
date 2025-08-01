@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
 import AssessmentGame from './components/AssessmentGame';
+import QuestSelection from './components/QuestSelection';
+import AIChatAssessment from './components/AIChatAssessment';
 import LoadingScreen from './components/LoadingScreen';
 import './App.css';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<'loading' | 'landing' | 'assessment'>('landing'); // Start directly on landing
+  const [currentPage, setCurrentPage] = useState<'loading' | 'landing' | 'quest-selection' | 'traditional-assessment' | 'ai-chat-assessment'>('landing'); // Start directly on landing
   const [error, setError] = useState<string | null>(null);
 
   // Simplified - no loading timer for debugging
@@ -19,11 +21,29 @@ function App() {
     }
   }, []);
 
-  const navigateToAssessment = () => {
+  const navigateToQuestSelection = () => {
     try {
-      setCurrentPage('assessment');
+      setCurrentPage('quest-selection');
     } catch (err) {
-      console.error('Error navigating to assessment:', err);
+      console.error('Error navigating to quest selection:', err);
+      setError(err instanceof Error ? err.message : 'Navigation error');
+    }
+  };
+
+  const navigateToTraditionalAssessment = () => {
+    try {
+      setCurrentPage('traditional-assessment');
+    } catch (err) {
+      console.error('Error navigating to traditional assessment:', err);
+      setError(err instanceof Error ? err.message : 'Navigation error');
+    }
+  };
+
+  const navigateToAIChatAssessment = () => {
+    try {
+      setCurrentPage('ai-chat-assessment');
+    } catch (err) {
+      console.error('Error navigating to AI chat assessment:', err);
       setError(err instanceof Error ? err.message : 'Navigation error');
     }
   };
@@ -83,10 +103,22 @@ function App() {
   return (
     <div className="App">
       {currentPage === 'landing' && (
-        <LandingPage onStartAssessment={navigateToAssessment} />
+        <LandingPage onStartAssessment={navigateToQuestSelection} />
       )}
-      {currentPage === 'assessment' && (
+      {currentPage === 'quest-selection' && (
+        <QuestSelection 
+          onSelectTraditional={navigateToTraditionalAssessment}
+          onSelectAIChat={navigateToAIChatAssessment}
+          onBackToLanding={navigateToLanding}
+        />
+      )}
+      {currentPage === 'traditional-assessment' && (
         <AssessmentGame onBackToLanding={navigateToLanding} />
+      )}
+      {currentPage === 'ai-chat-assessment' && (
+        <AIChatAssessment 
+          onBackToQuests={() => setCurrentPage('quest-selection')}
+        />
       )}
     </div>
   );
