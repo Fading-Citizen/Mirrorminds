@@ -22,8 +22,8 @@ const ResultsScreen: React.FC<ResultsScreenProps> = ({
     <StyledWrapper>
       <div className="results-container">
         {/* Fixed Back Button */}
-        <button className="fixed-back-btn" onClick={onBackToHome} title="Back to Landing Page">
-          ← Home
+        <button className="fixed-back-btn" onClick={onBackToHome} title="Back to Quest Selection">
+          ← Choose Quest
         </button>
         
         <div className="results-screen">
@@ -74,7 +74,7 @@ const ResultsScreen: React.FC<ResultsScreenProps> = ({
               🔄 Take Quest Again
             </button>
             <button className="back-btn" onClick={onBackToHome}>
-              ← Back to Home
+              ← Choose New Quest
             </button>
           </div>
         </div>

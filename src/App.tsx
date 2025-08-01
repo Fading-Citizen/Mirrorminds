@@ -113,7 +113,7 @@ function App() {
         />
       )}
       {currentPage === 'traditional-assessment' && (
-        <AssessmentGame onBackToLanding={navigateToLanding} />
+        <AssessmentGame onBackToQuestSelection={() => setCurrentPage('quest-selection')} />
       )}
       {currentPage === 'ai-chat-assessment' && (
         <AIChatAssessment 

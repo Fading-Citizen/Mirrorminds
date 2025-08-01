@@ -10,10 +10,10 @@ interface Question {
 }
 
 interface AssessmentGameProps {
-  onBackToLanding: () => void;
+  onBackToQuestSelection: () => void;
 }
 
-const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToLanding }) => {
+const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToQuestSelection }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [experience, setExperience] = useState(0);
@@ -116,8 +116,8 @@ const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToLanding }) => {
     return (
       <div className="assessment-container">
         {/* Fixed Back Button */}
-        <button className="fixed-back-btn" onClick={onBackToLanding} title="Back to Landing Page">
-          ← Home
+        <button className="fixed-back-btn" onClick={onBackToQuestSelection} title="Back to Quest Selection">
+          ← Choose Quest
         </button>
         
         <div className="game-intro">
@@ -160,7 +160,7 @@ const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToLanding }) => {
         questionsCompleted={questions.length}
         assessmentType="traditional"
         onRestart={resetGame}
-        onBackToHome={onBackToLanding}
+        onBackToHome={onBackToQuestSelection}
       />
     );
   }
@@ -168,8 +168,8 @@ const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToLanding }) => {
   return (
     <div className="assessment-container">
       {/* Fixed Back Button */}
-      <button className="fixed-back-btn" onClick={onBackToLanding} title="Back to Landing Page">
-        ← Home
+      <button className="fixed-back-btn" onClick={onBackToQuestSelection} title="Back to Quest Selection">
+        ← Choose Quest
       </button>
       
       {/* Game HUD */}
