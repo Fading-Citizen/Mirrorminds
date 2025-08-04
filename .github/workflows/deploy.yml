@@ -40,7 +40,19 @@ jobs:
         run: |
           touch ./dist/.nojekyll
           echo "Added .nojekyll file to disable Jekyll processing"
+          
+      - name: Create _headers file for Netlify-style headers (GitHub Pages fallback)
+        run: |
+          echo "/*.js" > ./dist/_headers
+          echo "  Content-Type: application/javascript" >> ./dist/_headers
+          echo "/*.mjs" >> ./dist/_headers  
+          echo "  Content-Type: application/javascript" >> ./dist/_headers
+          
+      - name: List dist contents
+        run: |
           ls -la ./dist/
+          echo "--- Assets folder ---"
+          ls -la ./dist/assets/ || echo "No assets folder"
           
       - name: Setup Pages
         uses: actions/configure-pages@v4

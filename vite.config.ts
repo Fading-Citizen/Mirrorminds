@@ -22,12 +22,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks: undefined
-      }
-    },
     target: 'es2015',
-    minify: 'terser'
+    minify: 'esbuild'
   }
 })
