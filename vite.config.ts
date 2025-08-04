@@ -3,7 +3,18 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'html-transform',
+      transformIndexHtml(html) {
+        return html.replace(
+          /<script type="module" crossorigin src="([^"]+)"><\/script>/,
+          '<script crossorigin src="$1"></script>'
+        );
+      }
+    }
+  ],
   base: '/Mirrorminds/',
   server: {
     proxy: {
@@ -23,6 +34,16 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true,
     target: 'es2020',
-    minify: 'esbuild'
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        format: 'iife',
+        name: 'MirrorMinds',
+        entryFileNames: 'assets/index.js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]',
+        inlineDynamicImports: true
+      }
+    }
   }
 })

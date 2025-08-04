@@ -6,6 +6,7 @@ import AIChatAssessment from './components/AIChatAssessment';
 import LoadingScreen from './components/LoadingScreen';
 import AuthContainer from './components/AuthContainer';
 import { UserManager } from './utils/userManager';
+import { ThemeProvider } from './contexts/ThemeContext';
 import './App.css';
 
 function App() {
@@ -129,14 +130,15 @@ function App() {
   console.log('Rendering main app, currentPage:', currentPage);
 
   return (
-    <div className="App">
-      {currentPage === 'landing' && (
-        <LandingPage 
-          onStartAssessment={navigateToQuestSelection}
-          onLogin={navigateToAuth}
-        />
-      )}
-      {currentPage === 'auth' && (
+    <ThemeProvider>
+      <div className="App">
+        {currentPage === 'landing' && (
+          <LandingPage 
+            onStartAssessment={navigateToQuestSelection}
+            onLogin={navigateToAuth}
+          />
+        )}
+        {currentPage === 'auth' && (
         <AuthContainer 
           onBackToLanding={navigateToLanding}
           onAuthSuccess={handleAuthSuccess}
@@ -159,6 +161,7 @@ function App() {
         />
       )}
     </div>
+    </ThemeProvider>
   );
 }
 

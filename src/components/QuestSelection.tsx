@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import GlobalHeader from './GlobalHeader';
 
 interface QuestSelectionProps {
   onSelectTraditional: () => void;
@@ -14,14 +15,9 @@ const QuestSelection: React.FC<QuestSelectionProps> = ({
 }) => {
   return (
     <StyledWrapper>
+      <GlobalHeader showLogo={true} showHomeLink={false} onHomeClick={onBackToLanding} />
       <div className="quest-selection-container">
         <header className="quest-header">
-          <button 
-            className="back-button"
-            onClick={onBackToLanding}
-          >
-            ← Back to Home
-          </button>
           <h1>Choose Your COG Assessment Journey</h1>
           <p>Select the type of assessment that resonates with you</p>
         </header>
@@ -111,8 +107,8 @@ const QuestSelection: React.FC<QuestSelectionProps> = ({
 const StyledWrapper = styled.div`
   .quest-selection-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-primary);
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -153,7 +149,7 @@ const StyledWrapper = styled.div`
 
   .quest-header p {
     font-size: 1.2rem;
-    color: #a1a1aa;
+    color: var(--text-secondary);
     margin: 0;
   }
 
@@ -166,8 +162,8 @@ const StyledWrapper = styled.div`
   }
 
   .quest-card {
-    background: rgba(23, 23, 23, 0.8);
-    border: 2px solid transparent;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
     border-radius: 20px;
     padding: 2rem;
     cursor: pointer;
@@ -177,6 +173,7 @@ const StyledWrapper = styled.div`
     min-height: 600px;
     display: flex;
     flex-direction: column;
+    box-shadow: var(--shadow-card);
   }
 
   .quest-card::before {
@@ -218,7 +215,7 @@ const StyledWrapper = styled.div`
     font-weight: 600;
     margin: 0 0 1rem 0 !important;
     text-align: center;
-    color: #e5e5e5 !important;
+    color: var(--text-accent) !important;
     line-height: 1.3;
   }
 
@@ -231,7 +228,7 @@ const StyledWrapper = styled.div`
   }
 
   .quest-card p {
-    color: #a1a1aa;
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: 1.5rem;
     text-align: center;
@@ -250,15 +247,15 @@ const StyledWrapper = styled.div`
     align-items: flex-start;
     gap: 1rem;
     padding: 0.75rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--bg-secondary);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease;
   }
 
   .feature-item:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
   }
 
   .feature-icon {
@@ -269,7 +266,7 @@ const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--bg-accent);
     border-radius: 10px;
   }
 
@@ -281,14 +278,14 @@ const StyledWrapper = styled.div`
   }
 
   .feature-title {
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 0.95rem;
     line-height: 1.2;
   }
 
   .feature-desc {
-    color: #a1a1aa;
+    color: var(--text-secondary);
     font-size: 0.85rem;
     line-height: 1.3;
   }

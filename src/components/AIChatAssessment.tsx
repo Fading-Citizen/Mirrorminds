@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import ResultsScreen from './ResultsScreen';
+import GlobalHeader from './GlobalHeader';
 import { AIChatService } from '../services/aiChatService';
 import { UserManager } from '../utils/userManager';
 
@@ -218,6 +219,7 @@ const AIChatAssessment: React.FC<AIChatAssessmentProps> = ({
 
   return (
     <StyledWrapper>
+      <GlobalHeader showLogo={true} showHomeLink={false} onHomeClick={onBackToQuests} />
       <div className="chat-assessment-container">
         {/* Sidebar Progress */}
         <div className="progress-sidebar">
@@ -362,8 +364,8 @@ const AIChatAssessment: React.FC<AIChatAssessmentProps> = ({
 const StyledWrapper = styled.div`
   .chat-assessment-container {
     height: 100vh;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-primary);
     display: flex;
     overflow: hidden;
   }
@@ -371,8 +373,8 @@ const StyledWrapper = styled.div`
   /* Sidebar Progress */
   .progress-sidebar {
     width: 320px;
-    background: rgba(23, 23, 23, 0.9);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-card);
+    border-right: 1px solid var(--border-color);
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -388,13 +390,13 @@ const StyledWrapper = styled.div`
   .sidebar-header h3 {
     margin: 0 0 1rem 0;
     font-size: 1.2rem;
-    color: white;
+    color: var(--text-primary);
   }
 
   .back-button {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
@@ -404,7 +406,7 @@ const StyledWrapper = styled.div`
   }
 
   .back-button:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--bg-hover);
   }
 
   .progress-section {
@@ -434,11 +436,11 @@ const StyledWrapper = styled.div`
     display: block;
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: var(--text-primary);
   }
 
   .progress-total {
-    color: #a1a1aa;
+    color: var(--text-secondary);
     font-size: 1rem;
   }
 
@@ -457,17 +459,17 @@ const StyledWrapper = styled.div`
   }
 
   .progress-steps::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--bg-secondary);
     border-radius: 2px;
   }
 
   .progress-steps::-webkit-scrollbar-thumb {
-    background: rgba(255, 34, 136, 0.5);
+    background: var(--accent-purple);
     border-radius: 2px;
   }
 
   .progress-steps::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 34, 136, 0.7);
+    background: var(--primary-cyan);
   }
 
   .step {
@@ -489,47 +491,47 @@ const StyledWrapper = styled.div`
   }
 
   .step.completed .step-circle {
-    background: linear-gradient(45deg, #ff2288, #387ef0);
-    color: white;
+    background: linear-gradient(45deg, var(--accent-purple), var(--primary-cyan));
+    color: var(--text-primary);
   }
 
   .step.current .step-circle {
-    background: rgba(255, 34, 136, 0.2);
-    border: 2px solid #ff2288;
-    color: #ff2288;
+    background: var(--bg-accent);
+    border: 2px solid var(--accent-purple);
+    color: var(--accent-purple);
   }
 
   .step.pending .step-circle {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #666;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
   }
 
   .step-label {
     font-size: 0.9rem;
-    color: #a1a1aa;
+    color: var(--text-secondary);
   }
 
   .step.completed .step-label {
-    color: white;
+    color: var(--text-primary);
   }
 
   .step.current .step-label {
-    color: #ff2288;
+    color: var(--accent-purple);
     font-weight: 600;
   }
 
   .insights-preview {
     margin-top: 1.5rem;
     flex-shrink: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border-color);
     padding-top: 1.5rem;
   }
 
   .insights-preview h4 {
     margin: 0 0 1rem 0;
     font-size: 1rem;
-    color: white;
+    color: var(--text-primary);
   }
 
   .insight-tags {
@@ -539,12 +541,12 @@ const StyledWrapper = styled.div`
   }
 
   .tag {
-    background: rgba(255, 34, 136, 0.2);
-    color: #ff2288;
+    background: var(--bg-accent);
+    color: var(--accent-purple);
     padding: 0.25rem 0.5rem;
     border-radius: 12px;
     font-size: 0.75rem;
-    border: 1px solid rgba(255, 34, 136, 0.3);
+    border: 1px solid var(--border-accent);
   }
 
   /* Main Chat Box */
@@ -552,24 +554,24 @@ const StyledWrapper = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: rgba(15, 15, 15, 0.8);
+    background: var(--bg-card);
     margin: 1rem;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
     overflow: hidden;
   }
 
   .chat-header {
     padding: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(23, 23, 23, 0.8);
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-secondary);
     text-align: center;
   }
 
   .chat-header h1 {
     margin: 0 0 0.5rem 0;
     font-size: 1.8rem;
-    background: linear-gradient(45deg, #ff2288, #387ef0);
+    background: linear-gradient(45deg, var(--accent-purple), var(--primary-cyan));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -577,7 +579,7 @@ const StyledWrapper = styled.div`
 
   .chat-header p {
     margin: 0;
-    color: #a1a1aa;
+    color: var(--text-secondary);
     font-size: 0.9rem;
   }
 
@@ -642,13 +644,13 @@ const StyledWrapper = styled.div`
   }
 
   .message.ai .message-bubble {
-    background: rgba(255, 34, 136, 0.1);
-    border: 1px solid rgba(255, 34, 136, 0.2);
+    background: var(--bg-accent);
+    border: 1px solid var(--border-accent);
   }
 
   .message.user .message-bubble {
-    background: rgba(56, 126, 240, 0.1);
-    border: 1px solid rgba(56, 126, 240, 0.2);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
   }
 
   .message-bubble p {
@@ -658,7 +660,7 @@ const StyledWrapper = styled.div`
 
   .timestamp {
     font-size: 0.75rem;
-    color: #666;
+    color: var(--text-muted);
   }
 
   .typing-indicator {
@@ -671,7 +673,7 @@ const StyledWrapper = styled.div`
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: #ff2288;
+    background: var(--accent-purple);
     animation: typing 1.4s infinite ease-in-out;
   }
 
@@ -696,8 +698,8 @@ const StyledWrapper = styled.div`
 
   .input-container {
     padding: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(23, 23, 23, 0.8);
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
     display: flex;
     gap: 1rem;
     align-items: flex-end;
@@ -705,11 +707,11 @@ const StyledWrapper = styled.div`
 
   .input-container textarea {
     flex: 1;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 1rem;
-    color: white;
+    color: var(--text-primary);
     resize: none;
     font-family: inherit;
     font-size: 1rem;
@@ -719,20 +721,20 @@ const StyledWrapper = styled.div`
 
   .input-container textarea:focus {
     outline: none;
-    border-color: #ff2288;
-    box-shadow: 0 0 0 2px rgba(255, 34, 136, 0.2);
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 2px var(--shadow-accent);
   }
 
   .input-container textarea::placeholder {
-    color: #666;
+    color: var(--text-muted);
   }
 
   .send-button {
-    background: linear-gradient(45deg, #ff2288, #387ef0);
+    background: linear-gradient(45deg, var(--accent-purple), var(--primary-cyan));
     border: none;
     border-radius: 12px;
     padding: 1rem 2rem;
-    color: white;
+    color: var(--text-primary);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -741,7 +743,7 @@ const StyledWrapper = styled.div`
 
   .send-button:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 34, 136, 0.3);
+    box-shadow: var(--shadow-elevated);
   }
 
   .send-button:disabled {

@@ -1,3 +1,70 @@
+/* CSS Variables for themes */
+:root {
+  /* Color palette */
+  --primary-cyan: #00d4ff;
+  --primary-blue: #0099cc;
+  --accent-purple: #6b46c1;
+  --accent-pink: #ec4899;
+}
+
+/* Dark theme (default) */
+[data-theme="dark"] {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #2a2a2a;
+  --bg-card: #1e1e1e;
+  --bg-hover: #333333;
+  
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --text-muted: #666666;
+  
+  --border-color: #333333;
+  --border-hover: #555555;
+  
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --shadow-hover: rgba(0, 0, 0, 0.7);
+  --shadow-purple: rgba(139, 92, 246, 0.3);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  
+  --overlay-bg: rgba(0, 0, 0, 0.8);
+  
+  /* Gradient backgrounds */
+  --gradient-primary: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  --gradient-card: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+  --gradient-button: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-blue) 100%);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #e2e8f0;
+  --bg-card: #ffffff;
+  --bg-hover: #f1f5f9;
+  
+  --text-primary: #1a202c;
+  --text-secondary: #2d3748;
+  --text-muted: #4a5568;
+  
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e0;
+  
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  --shadow-purple: rgba(139, 92, 246, 0.1);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  --overlay-bg: rgba(255, 255, 255, 0.95);
+  
+  /* Gradient backgrounds */
+  --gradient-primary: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  --gradient-card: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+  --gradient-button: linear-gradient(135deg, var(--primary-cyan) 0%, var(--primary-blue) 100%);
+}
+
 /* Base responsive styles */
 * {
   box-sizing: border-box;
@@ -17,6 +84,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden; /* Prevent horizontal scroll */
   line-height: 1.6;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Responsive font scaling */

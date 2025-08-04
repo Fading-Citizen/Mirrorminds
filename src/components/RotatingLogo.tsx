@@ -40,22 +40,22 @@ const RotatingLogo = () => {
 
 const StyledWrapper = styled.div`
   .wrapper {
-    width: 200px;
-    height: 200px;
-    position: relative;
+    width: 100px;
+    height: 100px;
+    position: center;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: visible;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
 
   .inner {
-    --w: 80px;
-    --h: 120px;
-    --translateZ: calc((var(--w) + var(--h)) + 0px);
-    --rotateX: -15deg;
+    --w: 50px;
+    --h: 80px;
+    --translateZ: 100px;
+    --rotateX: -13deg;
     --perspective: 1000px;
     position: absolute;
     width: var(--w);
@@ -130,22 +130,22 @@ const StyledWrapper = styled.div`
   .center-logo {
     position: absolute;
     z-index: 10;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     border-radius: 50%;
     backdrop-filter: blur(5px);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .logo-image {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
-    filter: drop-shadow(0 4px 12px rgba(0, 212, 255, 0.3));
+    filter: drop-shadow(0 2px 6px rgba(0, 212, 255, 0.3));
     animation: logoGlow 3s ease-in-out infinite alternate;
   }
 

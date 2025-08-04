@@ -86,8 +86,8 @@ const ResultsScreen: React.FC<ResultsScreenProps> = ({
 const StyledWrapper = styled.div`
   .results-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    color: white;
+    background: var(--gradient-primary);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,9 +99,9 @@ const StyledWrapper = styled.div`
     position: fixed;
     top: 20px;
     left: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
@@ -111,23 +111,23 @@ const StyledWrapper = styled.div`
   }
 
   .fixed-back-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--bg-hover);
   }
 
   .results-screen {
-    background: rgba(23, 23, 23, 0.9);
+    background: var(--bg-card);
     border-radius: 20px;
     padding: 3rem;
     max-width: 600px;
     width: 100%;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
   }
 
   .results-title {
     font-size: 2.5rem;
     margin: 0 0 2rem 0;
-    background: linear-gradient(45deg, #ff2288, #387ef0);
+    background: linear-gradient(45deg, var(--accent-purple), var(--primary-cyan));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -141,22 +141,22 @@ const StyledWrapper = styled.div`
   }
 
   .stat-item {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-secondary);
     padding: 1rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
   }
 
   .stat-label {
     display: block;
-    color: #a1a1aa;
+    color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
 
   .stat-value {
     display: block;
-    color: white;
+    color: var(--text-primary);
     font-size: 1.5rem;
     font-weight: bold;
   }
@@ -167,7 +167,7 @@ const StyledWrapper = styled.div`
 
   .cog-results h2 {
     margin: 0 0 1.5rem 0;
-    color: white;
+    color: var(--text-primary);
     font-size: 1.5rem;
   }
 
@@ -186,21 +186,21 @@ const StyledWrapper = styled.div`
   .cog-name {
     min-width: 100px;
     text-align: left;
-    color: #e5e5e5;
+    color: var(--text-accent);
     font-size: 0.9rem;
   }
 
   .progress-bar {
     flex: 1;
     height: 10px;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--bg-secondary);
     border-radius: 5px;
     overflow: hidden;
   }
 
   .progress-fill {
     height: 100%;
-    background: linear-gradient(45deg, #ff2288, #387ef0);
+    background: linear-gradient(45deg, var(--accent-purple), var(--primary-cyan));
     border-radius: 5px;
     transition: width 0.3s ease;
   }
@@ -208,7 +208,7 @@ const StyledWrapper = styled.div`
   .cog-percentage {
     min-width: 40px;
     text-align: right;
-    color: #a1a1aa;
+    color: var(--text-secondary);
     font-size: 0.9rem;
   }
 

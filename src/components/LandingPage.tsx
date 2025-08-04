@@ -1,6 +1,7 @@
 import React from 'react';
 import COGCard from './COGCard';
 import RotatingLogo from './RotatingLogo';
+import GlobalHeader from './GlobalHeader';
 import './LandingPage.css';
 
 interface LandingPageProps {
@@ -56,12 +57,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onLogin })
 
   return (
     <div className="landing-container">
+      <GlobalHeader onLogin={onLogin} showLogo={false} />
+      
       <header className="landing-header">
-        {onLogin && (
-          <button className="login-button" onClick={onLogin}>
-            Login
-          </button>
-        )}
         <div className="hero-section">
           <div className="rotating-logo-container">
             <RotatingLogo />

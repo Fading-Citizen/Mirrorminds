@@ -31,7 +31,7 @@ const StyledWrapper = styled.div`
     width: 100%;
     max-width: 250px; /* HEXAGON: Smaller cards for hexagon formation */
     min-height: 180px; /* HEXAGON: Compact height for hexagon layout */
-    background-color: #0a0a0a;
+    background-color: var(--bg-card);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -39,7 +39,7 @@ const StyledWrapper = styled.div`
     gap: 8px; /* HEXAGON: Tight spacing */
     border-radius: 16px;
     cursor: pointer;
-    color: white;
+    color: var(--text-primary);
     transition: all 0.3s ease;
   }
 
@@ -85,14 +85,14 @@ const StyledWrapper = styled.div`
     text-transform: capitalize;
     font-weight: 700;
     margin: 0 0 4px 0; /* REDUCE: Small bottom margin to reduce space below title */
-    color: #ffffff;
+    color: var(--text-primary);
     line-height: 1.1; /* REDUCE: Tighter line height */
   }
 
   /* DESCRIPTION STYLING - Adjust description size and spacing */
   .cog-description {
     font-size: 0.85rem; /* ADJUST: Change this to modify description text size */
-    color: #a1a1aa;
+    color: var(--text-secondary);
     margin: 0 0 8px 0; /* REDUCE: Small bottom margin to control space before manifestation */
     font-style: italic;
     line-height: 1.2; /* REDUCE: Tighter line height */
@@ -100,17 +100,17 @@ const StyledWrapper = styled.div`
 
   /* MANIFESTATION BOX - Adjust the bottom section padding and spacing */
   .cog-manifestation {
-    background: rgba(26, 26, 26, 0.8);
+    background: var(--bg-tertiary);
     padding: 10px; /* REDUCE: Lower this to make manifestation box more compact */
     border-radius: 8px; /* REDUCE: Smaller border radius */
-    border: 1px solid #333;
+    border: 1px solid var(--border-color);
     margin-top: auto; /* KEEP: This pushes manifestation to bottom */
   }
 
   /* MANIFESTATION LABEL - Adjust label spacing */
   .manifestation-label {
     display: block;
-    color: #00d4ff;
+    color: var(--primary-cyan);
     font-weight: 600;
     font-size: 0.75rem; /* REDUCE: Smaller label text */
     text-transform: uppercase;
@@ -120,7 +120,7 @@ const StyledWrapper = styled.div`
 
   /* MANIFESTATION TEXT - Adjust manifestation text styling */
   .manifestation-text {
-    color: #e5e5e5;
+    color: var(--text-secondary);
     font-size: 0.8rem; /* ADJUST: Change this to modify manifestation text size */
     line-height: 1.2; /* REDUCE: Tighter line spacing */
   }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ResultsScreen from './ResultsScreen';
+import GlobalHeader from './GlobalHeader';
 import './AssessmentGame.css';
 
 interface Question {
@@ -166,7 +167,9 @@ const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToQuestSelection 
   }
 
   return (
-    <div className="assessment-container">
+    <>
+      <GlobalHeader showLogo={true} showHomeLink={false} onHomeClick={onBackToQuestSelection} />
+      <div className="assessment-container">
       {/* Fixed Back Button */}
       <button className="fixed-back-btn" onClick={onBackToQuestSelection} title="Back to Quest Selection">
         ← Choose Quest
@@ -231,6 +234,7 @@ const AssessmentGame: React.FC<AssessmentGameProps> = ({ onBackToQuestSelection 
         <div className="floating-orb orb-3"></div>
       </div>
     </div>
+    </>
   );
 };
 
