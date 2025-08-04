@@ -23,6 +23,14 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true,
     target: 'es2015',
-    minify: 'esbuild'
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        format: 'iife',
+        entryFileNames: 'assets/[name].js',
+        chunkFileNames: 'assets/[name].js',
+        assetFileNames: 'assets/[name].[ext]'
+      }
+    }
   }
 })
