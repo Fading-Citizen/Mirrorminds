@@ -5,6 +5,19 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/Mirrorminds/',
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://7soi1605r1.execute-api.us-east-2.amazonaws.com/dev',
+        changeOrigin: true,
+        secure: true,
+        rewrite: (path) => path.replace(/^\/api/, '/api')
+      }
+    },
+    fs: {
+      strict: false
+    }
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -18,10 +31,5 @@ export default defineConfig({
     },
     target: 'es2015',
     minify: 'esbuild'
-  },
-  server: {
-    fs: {
-      strict: false
-    }
   }
 })

@@ -5,12 +5,14 @@ import QuestSelection from './components/QuestSelection';
 import AIChatAssessment from './components/AIChatAssessment';
 import LoadingScreen from './components/LoadingScreen';
 import AuthContainer from './components/AuthContainer';
+import { UserManager } from './utils/userManager';
 import './App.css';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<'loading' | 'landing' | 'auth' | 'quest-selection' | 'traditional-assessment' | 'ai-chat-assessment'>('landing'); // Start directly on landing
   const [error, setError] = useState<string | null>(null);
   const [user, setUser] = useState<any>(null);
+  const [userManager] = useState(() => UserManager.getInstance());
 
   // Simplified - no loading timer for debugging
   useEffect(() => {
@@ -71,6 +73,10 @@ function App() {
   const handleAuthSuccess = (userData: any) => {
     try {
       setUser(userData);
+      // Set the user in UserManager for API calls
+      if (userData.email) {
+        userManager.createNewUser(userData.email);
+      }
       setCurrentPage('quest-selection');
       console.log('User authenticated:', userData);
     } catch (err) {
@@ -149,6 +155,7 @@ function App() {
       {currentPage === 'ai-chat-assessment' && (
         <AIChatAssessment 
           onBackToQuests={() => setCurrentPage('quest-selection')}
+          user={user}
         />
       )}
     </div>
