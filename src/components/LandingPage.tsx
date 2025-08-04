@@ -142,7 +142,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onStartAssessment, onLogin })
             <h2>Ready to Discover Your Gifts?</h2>
             <p>Start your journey of self-discovery today</p>
             <button className="cta-button" onClick={onStartAssessment}>
-              🚀 Start Your Discovery
+              Start Your Discovery
             </button>
           </div>
         </section>
