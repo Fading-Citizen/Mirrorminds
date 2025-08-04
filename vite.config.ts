@@ -21,17 +21,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    emptyOutDir: true,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
-        entryFileNames: 'assets/[name].[hash].js',
-        chunkFileNames: 'assets/[name].[hash].js',
-        assetFileNames: 'assets/[name].[hash].[ext]',
-        format: 'es'
+        manualChunks: undefined
       }
     },
     target: 'es2015',
-    minify: 'esbuild',
-    sourcemap: false
+    minify: 'terser'
   }
 })

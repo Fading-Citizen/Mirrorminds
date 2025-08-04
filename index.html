@@ -5,44 +5,25 @@
     <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MirrorMinds - Core Operating Gifts Assessment</title>
-    <script>
-      // GitHub Pages MIME type fix
-      window.addEventListener('error', function(e) {
-        console.error('Script error:', e.error, e.filename, e.lineno);
-        if (e.filename && e.filename.includes('.js') && e.error && e.error.message.includes('MIME type')) {
-          console.warn('MIME type error detected, attempting module loading workaround...');
-        }
-        document.getElementById('debug-info').innerHTML += 
-          '<p style="color: #ff4444;">Error: ' + e.error + ' at ' + e.filename + ':' + e.lineno + '</p>';
-      });
-      
-      // Check if assets are loading
-      console.log('Index.html loaded');
-      console.log('Current URL:', window.location.href);
-      console.log('Base URL:', document.baseURI);
-      
-      // Fallback for module loading issues
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          if (!window.React && !document.querySelector('#root').hasChildNodes()) {
-            console.warn('React app not loaded, showing fallback message');
-            document.getElementById('debug-info').innerHTML += 
-              '<p style="color: #ffaa44;">React app failed to load. This may be a MIME type issue on GitHub Pages.</p>';
-          }
-        }, 5000);
-      });
-    </script>
   </head>
   <body>
     <div id="root">
       <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background: #0a0a0a; color: white; font-family: system-ui;">
         <div style="text-align: center;">
           <h1>Loading MirrorMinds...</h1>
-          <p>If this screen persists, please check the browser console for errors.</p>
-          <div id="debug-info" style="margin-top: 20px; font-size: 12px; color: #888;"></div>
+          <p>Initializing your COG Assessment platform...</p>
+          <div style="margin-top: 20px;">
+            <div style="width: 50px; height: 50px; border: 3px solid #333; border-top: 3px solid #00d4ff; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto;"></div>
+          </div>
         </div>
       </div>
     </div>
+    <style>
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
     <script type="module" src="./src/main.tsx"></script>
   </body>
 </html>

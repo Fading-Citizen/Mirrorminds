@@ -15,12 +15,8 @@ No 'Access-Control-Allow-Origin' header is present on the requested resource.
 **Please configure CORS headers on your API endpoints to allow:**
 
 ### Development Origins:
-- `http://localhost:5173`
-- `http://localhost:3000` (backup)
-
-### Production Origins:
-- `https://fading-citizen.github.io`
-- `https://your-custom-domain.com` (if applicable)
+- `http://localhost:5173` (local development)
+- `https://fading-citizen.github.io` (GitHub Pages deployment)
 
 ### Required Headers:
 ```
@@ -52,12 +48,15 @@ Hi Backend Team!
 
 Could you please enable CORS on the AI chat API endpoints? 
 
-Frontend URL: http://localhost:5173 (dev) and https://fading-citizen.github.io (prod)
+Frontend URLs: 
+- Local Development: http://localhost:5173 
+- GitHub Pages: https://fading-citizen.github.io
+
 API Endpoints: 
 - POST /api/agentic-safety
 - GET /api/aspect-summary/{user_id}
 
-Currently getting CORS errors when trying to connect from frontend.
+Currently getting CORS errors when trying to connect from the GitHub Pages deployment.
 
 Thanks!
 ```

@@ -66,8 +66,9 @@ Successfully integrated the real backend API for the AI Chat Assessment feature 
 
 ## 🧪 Testing
 
-- **Development Server**: Running on `http://localhost:5173/Mirrorminds/`
-- **API Testing**: Real API calls are made in production mode
+- **GitHub Pages**: https://fading-citizen.github.io/Mirrorminds/
+- **Local Development**: http://localhost:5173/Mirrorminds/
+- **API Testing**: Real API calls are made when CORS is configured
 - **Fallback Testing**: Mock responses ensure smooth UX even with API issues
 
 ## 📊 Benefits

@@ -1,7 +1,7 @@
 import { UserManager } from '../utils/userManager';
 
-// Use proxy in development, direct URL in production
-const BASE_URL = import.meta.env.DEV 
+// Use proxy for local development, direct URL for GitHub Pages
+const BASE_URL = window.location.hostname === 'localhost' 
   ? '/api' // This will be proxied to the actual API
   : 'https://7soi1605r1.execute-api.us-east-2.amazonaws.com/dev';
 
