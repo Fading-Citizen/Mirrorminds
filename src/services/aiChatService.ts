@@ -5,6 +5,22 @@ const BASE_URL = window.location.hostname === 'localhost'
   ? '/api' // This will be proxied to the actual API
   : 'https://7soi1605r1.execute-api.us-east-2.amazonaws.com/dev';
 
+// Helper function to handle CORS errors
+const handleCORSError = (error: any): AIChatResponse => {
+  console.error('CORS Error:', error);
+  if (window.location.hostname === 'fading-citizen.github.io') {
+    return {
+      error: 'API temporarily unavailable due to CORS policy. This is a known issue being fixed.',
+      message: 'The assessment is currently unavailable on the live site. Please try the local development version.',
+      isComplete: true
+    };
+  }
+  return {
+    error: 'Network error occurred. Please try again.',
+    isComplete: true
+  };
+};
+
 export interface AIChatResponse {
   question?: string;
   message?: string;
@@ -59,6 +75,12 @@ export class AIChatService {
       };
     } catch (error) {
       console.error('Error starting conversation:', error);
+      
+      // Check if it's a CORS error
+      if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+        return handleCORSError(error);
+      }
+      
       // Return a fallback question to keep the flow going
       return {
         question: "Hello! I'm here to help you discover your cognitive patterns through our conversation. How are you feeling today?",
@@ -105,6 +127,12 @@ export class AIChatService {
       };
     } catch (error) {
       console.error('Error sending response:', error);
+      
+      // Check if it's a CORS error
+      if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+        return handleCORSError(error);
+      }
+      
       return {
         error: `Failed to send response: ${error instanceof Error ? error.message : 'Unknown error'}`,
         isComplete: false
