@@ -15,7 +15,7 @@ export default defineConfig({
       }
     }
   ],
-  base: '/Mirrorminds/',
+  base: '/mirrorminds/',
   server: {
     proxy: {
       '/api': {
